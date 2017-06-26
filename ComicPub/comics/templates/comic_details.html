@@ -1,0 +1,200 @@
+{% extends "header.html" %}
+{% load staticfiles %}
+{% block extraImports %}
+    @media (min-width: 1200px) {
+    .container{
+    width: 100%;
+    }
+    }
+{% endblock %}
+
+{#Gets the context value of WEBSITE_NAME and sets the header title!#}
+{% block myTitle %}{{ WEBSITE_NAME }} | Read {{ comic_details.comic_name }} Online{% endblock %}
+
+{# Title Meta Tag #}
+{% block titleMeta %}{{ WEBSITE_NAME }} | Read {{ comic_details.comic_name }} Online{% endblock %}
+
+{# Sets the WEBSITE NAME/LOGO in the navbar #}
+{% block websiteLogo %}{{ WEBSITE_NAME }}{% endblock %}
+
+{% block headerSlider %}
+
+{% endblock %}
+
+
+{% block body %}
+    {#    <div class="container-fluid" align="center">#}
+    {#        <div class="row" align="center">#}
+    {#            <div class="darken" align="center">#}
+    {#                <img src="{{ comic_details.comic_banner_image.url }}" class="img-responsive" width="100%"#}
+    {#                     style="max-height: 500px;">#}
+    {#                <span class="text-content">#}
+    {#                    <span>#}
+    {#                        <div class="col-md-6" style="max-height: 500px;" align="center">#}
+    {#                            <div class="col-md-6">#}
+    {#                                <img src="{{ comic_details.comic_image.url }}" class="img-responsive" width="250px" height="250px" style="padding-top: 10%;padding-bottom: 1%;">#}
+    {#                            </div>#}
+    {#                            <div class="col-md-6" style="padding-top: 5%;padding-bottom: 3%;">#}
+    {#                                <h1>{{ comic_details.comic_name }}</h1>#}
+    {#                                    <br>#}
+    {#                                    {{ comic_details.comic_description }} <br>#}
+    {#                                    {{ comic_details.comic_author }} <br>#}
+    {#                                    {{ comic_details.comic_artist }} <br>#}
+    {#                                    {{ comic_details.comic_genre }} <br>#}
+    {#                                    {{ comic_details.comic_total_chapters }} <br>#}
+    {#                                    {{ comic_details.comic_type }} <br>#}
+    {#                                    {{ comic_details.comic_status }} <br>#}
+    {#                                    {{ comic_details.comic_original_name }} <br>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    </span>#}
+    {#                </span>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    <div class="container-fluid">
+        <h1 align="center">
+
+        </h1>
+        <div class="container" style="border: groove;padding-top: 1%">
+
+            <div align="center">
+                <p id="ComicName">
+                <h1>
+                    {{ comic_details.comic_name }}
+                </h1>
+                </p>
+                <p>
+                    ({{ comic_details.comic_genre }})
+                </p>
+                <p>
+                <HR width="80%">
+                </p>
+                <div class="row">
+                    <div class="col-md-6" style="max-width: 40%!important;width: 40%;overflow: hidden">
+                        <img name="ComicCover" src="{{ comic_details.comic_image.url }}" class="img-responsive" style="max-width: 280px;max-height: 500px;padding-right: 2%" alt="">
+                    </div>
+                    <div class="col-md-6" style="max-width: 100%;width: 50%">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    Author :
+                                </td>
+                                <td>
+                                    {{ comic_details.comic_author }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Original Name :
+                                </td>
+                                <td>
+                                    {{ comic_details.comic_original_name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Synopsis :
+                                </td>
+                                <td>
+                                    {{ comic_details.comic_description }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total Chapter :
+                                </td>
+                                <td>
+                                    {{ comic_details.comic_total_chapters }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Status :
+                                </td>
+                                <td>
+                                    {{ comic_details.comic_status }}
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>
+                    Chapter Number
+                </th>
+                <th>
+                    Chapter Title
+                </th>
+                <th>
+                    Chapter Volume
+                </th>
+                <th>
+                    Upload Date
+                </th>
+            </tr>
+            </thead>
+            {% if comic_details.comicchapter_set.all %}
+                <tbody>
+                {% for chapter in comic_details.comicchapter_set.all %}
+
+                    <tr>
+                        <td>
+                            {{ chapter.chapter_number }}
+                        </td>
+                        <td>
+                            <a href="/comics/{{ chapter.comic_id }}/reader/c{{ chapter.chapter_number }}">{{ chapter.chapter_title }}</a>
+                        </td>
+                        <td>
+                            {{ chapter.chapter_volume }}
+                        </td>
+                        <td>
+                            {{ chapter.create_time }}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

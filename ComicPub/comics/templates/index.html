@@ -1,0 +1,60 @@
+{% extends "header.html" %}
+{% load staticfiles %}
+{% block extraImports %}
+    @media (min-width: 1200px) {
+    .container{
+    width: 100%;
+    }
+    }
+{% endblock %}
+
+{#Gets the context value of WEBSITE_NAME and sets the header title!#}
+{% block myTitle %}{{ WEBSITE_NAME }} | HomePage{% endblock %}
+
+{# Title Meta Tag #}
+{% block titleMeta %}{{ WEBSITE_NAME }} | HomePage{% endblock %}
+
+{# Sets the WEBSITE NAME/LOGO in the navbar #}
+{% block websiteLogo %}{{ WEBSITE_NAME }}{% endblock %}
+
+{% block homeActive %}class="active"{% endblock %}
+{# Content of the slider for homepage goes into this tag/block #}
+{#{% block headerSlider %}#}
+{##}
+{##}
+{#    <div class="container-fluid">#}
+{#        {% for comic_info in comic_information %}#}
+{#        #}
+{#        {% endfor %}#}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}
+
+
+{# Main content of the page! #}
+{% block body %}
+    <div class="container-fluid">
+        <h1 align="center">
+            Latest Chapters
+        </h1>
+        <div class="container" style="border: groove;padding-top: 1%">
+            <div class="row">
+                {% for latest_chapter in chapters_information %}
+                    <div class="col-sm-4 col-lg-2 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/comics/{{ latest_chapter.comic_id }}/reader/c{{ latest_chapter.chapter_number }}/">
+                                <img src="{{ latest_chapter.comic.comic_image.url }}" class="img-responsive"
+                                     width="512px" height="512px">
+                                <div class="caption" align="center">
+                                {{ latest_chapter.comic.comic_name }} - {{ latest_chapter.chapter_number }}
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

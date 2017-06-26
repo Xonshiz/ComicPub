@@ -1,0 +1,47 @@
+{%  extends "header.html" %}
+{% load staticfiles %}
+{% block extraImports %}
+    @media (min-width: 1200px) {
+    .container{
+    width: 100%;
+    }
+    }
+{% endblock %}
+
+{% block comicsActive %}class="active"{% endblock %}
+{% block myTitle %}{{ WEBSITE_NAME }} | Comic List{% endblock %}
+
+{# Title Meta Tag #}
+{% block titleMeta %}{{ WEBSITE_NAME }} | Comic List{% endblock %}
+
+{# Menubar Logo #}
+{% block websiteLogo %}{{ WEBSITE_NAME }}{% endblock %}
+
+{#{% for comic in comic_list %}#}
+{#    <li>#}
+{#        {{ comic.id }} {{ comic.comic_image }} {{ comic.comic_name }} {{ comic.comic_site_name }}#}
+{#    </li>#}
+{#{% endfor %}#}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <h1 align="center">
+            All Comics
+        </h1>
+        <div class="container" style="border: groove;padding-top: 1%">
+            <div class="row">
+                {% for comic in comic_list %}
+                    <div class="col-sm-4 col-lg-2 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/comics/{{ comic.id }}">
+                                <img src="{{ comic.comic_image.url }}" class="img-responsive" width="512px" height="512px">
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

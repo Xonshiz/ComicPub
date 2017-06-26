@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block myTitle %}{% endblock %}</title>
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    <meta name="generator" content="ComicPub 2017.06.26" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ComicPub is a ready to deploy Django template for comic/manga hosting web apps. Developed by @Xonshiz (Dhruv Kanojia). Check the repository on Github.">
+    <meta name='keywords' content='ComicPub, Read Comics Online, Host Comics Online, Xonshiz, GitHub, Django Template,Open Source'/>
+    <meta name='title' content='{% block titleMeta %}{% endblock %}'/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        {% block extraImports %}
+        {% endblock %}
+    </style>
+</head>
+<body>
+
+{% block headerSlider %}
+{% endblock %}
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <!-- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+                {% block websiteLogo %}{% endblock %}
+            </a>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="collapse navbar-collapse" id="mainNavBar">
+            <ul class="nav navbar-nav">
+                <li {% block homeActive %} {% endblock %}><a href="/">Home</a></li>
+                {# This guy FUCKS --> https://stackoverflow.com/a/226536 #}
+                <li {% block comicsActive %} {% endblock %}><a href="/comics">Comics</a></li>
+                <li><a href="" data-toggle="modal" data-target="#aboutUsModal">About</a></li>
+                <li><a href="" data-toggle="modal" data-target="#recruitmentModal">Recruitment</a></li>
+                <li><a href="" data-toggle="modal" data-target="#contactUsModal">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Them Modal Windows For About, Recruitment and Contact-->
+        <!-- About Us -->
+        <div id="aboutUsModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3>
+                            About Us
+                        </h3>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="well">
+                                <p>
+                                    ComicPub a.k.a Comic Publish is a fully deployable web app template written in
+                                    DJango by Xonshiz.
+                                    Specially made for Manga Scanlation groups and comic hosters. You don't have to
+                                    store all the chapter
+                                    images on your web server and serve them to your viewers anymore. You can utilize
+                                    the power of Imgur
+                                    albums and give your users a nice experience.
+                                    <br><br>
+                                    This app neither violates Imgur's TOS, nor intends to do so in any possible way. At
+                                    the time of writing
+                                    this app, according to Imgur, direct hotlinking of images is
+                                    <mark>NOT</mark>
+                                    allowed. But, embeding an
+                                    album is
+                                    <mark>"okay"</mark>
+                                    (Since they can generate revenue from it), cool enough.
+                                    <br><br>
+                                    Since direct hotlinking is not allowed, we cannot use the image's direct link to
+                                    host the Cover Images of
+                                    the Comics, so that you'll have to store on your web server (which, I think is
+                                    pretty much OKAY).
+                                    <br><br>
+                                    Since this is a Django app, you cannot host it on normal web hosts. You need Django
+                                    Hosting. There are
+                                    two options in such case :
+                                    <br><br>
+                                <dl>
+                                    <dt>
+                                        Paid Hosting For Django :
+                                    </dt>
+                                    <dd>
+                                        - <a href="https://www.digitalocean.com/pricing/"
+                                             target="_blank">DigitalOcean</a>
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://www.heroku.com/pricing" target="_blank">Heroku</a>
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://cloud.google.com/pricing/" target="_blank">Google Cloud
+                                        Platflorm</a>
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">Amazon AWS</a>
+                                    </dd>
+                                    <br><br>
+                                    <dt>
+                                        Free Hosting For Django :
+                                    </dt>
+                                    <dd>
+                                        - <a href="https://www.heliohost.org/" target="_blank">HelioHost</a>
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://www.pythonanywhere.com/" target="_blank">PythonAnywhere</a>
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://www.heroku.com/pricing" target="_blank">Heroku</a> (Has
+                                        Limits)
+                                    </dd>
+                                    <dd>
+                                        - <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">Amazon AWS</a>
+                                        (Free Tier, Has Some Limits)
+                                    </dd>
+                                </dl>
+                                <h3>
+                                    <strong>
+                                        Credits :
+                                    </strong>
+                                </h3>
+                                Mockups and Concept Designer : <a href="https://github.com/ankitpassi141"
+                                                                  target="_blank">@AnkitPassi</a> <br>
+                                Front and Back End Develper : <a href="https://github.com/Xonshiz" target="_blank">@Xonshiz
+                                (Dhruv Kanojia)</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- button -->
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recruitment -->
+        <div id="recruitmentModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3>
+                            Recruitment
+                        </h3>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="well">
+                                <p>
+                                    Want to recuit people? Cool, go ahead and post the information here. HTML SUPPORTED!
+                                    <br><br>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- button -->
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Window -->
+        <div id="contactUsModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3>
+                            Contact Us
+                        </h3>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <form role="form" class="col-md-9 go-right">
+                            <h3>Please Fill All The Fields Below</h3>
+                            <h4>(This is not functional yet)</h4>
+                            <div class="form-group">
+                                <input id="name" name="name" type="text" class="form-control" required>
+                                <label for="name">Your Name</label>
+                            </div>
+                            <div class="form-group">
+                                <input id="phone" name="phone" type="email" class="form-control" required>
+                                <label for="phone">Your Email Id</label>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="phone" class="form-control" required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- button -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+
+{% block comments %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="comments">
+                <div id="disqus_thread"></div>
+                <script>
+
+                    /**
+                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+                    var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = document.title; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+
+                    (function () { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = '{{ DISQUS_URL }}';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                    powered by Disqus.</a></noscript>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <div align="center">
+            <div class="panel panel-default">
+                <div class="panel-footer">
+                    Designed and developed on Django, by <a href="https://github.com/Xonshiz">@Xonshiz</a>. Check out
+                    the source code for ComicPub on its <a href="https://github.com/Xonshiz/ComicPub">GitHub</a>.
+                    Current Version : <mark>2017.06.26</mark>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

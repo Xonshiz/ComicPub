@@ -1,0 +1,74 @@
+{% extends "header.html" %}
+{% load staticfiles %}
+{% block extraImports %}
+    @media (min-width: 1200px) {
+    .container{
+    width: 100%;
+    }
+    }
+{% endblock %}
+
+{#Gets the context value of WEBSITE_NAME and sets the header title!#}
+{% block myTitle %}{{ WEBSITE_NAME }} | {{ chapter_data.comic.comic_name }} Ch {{ chapter_data.chapter_number }}{% endblock %}
+
+{# Title Meta Tag #}
+{% block titleMeta %}{{ WEBSITE_NAME }} | {{ chapter_data.comic.comic_name }} Ch {{ chapter_data.chapter_number }}{% endblock %}
+
+{# Sets the WEBSITE NAME/LOGO in the navbar #}
+{% block websiteLogo %}{{ WEBSITE_NAME }}{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        {% if chapter_data.chapter_number %}
+
+            <div class="row" align="center">
+                <div class="col-md-12">
+                    <h2>
+                        {{ chapter_data.comic.comic_name }} - {{ chapter_data.chapter_number }}
+                    </h2>
+                    <br>
+                    (Check the <a href="/comics/{{ chapter_data.comic.id }}"> Chapter List here</a>)
+                    <br>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" align="center" style="border: dotted">
+                    <div class="col-md-12">
+                        <blockquote class="imgur-embed-pub" lang="en" data-id="a/{{ chapter_data.chapter_images }}"
+                                    style="width: 100%;height: 100%">#}
+                            <a href="//imgur.com/{{ chapter_data.chapter_images }}">
+
+                            </a>
+                        </blockquote>
+                        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row" align="center">
+                <div class="col-md-12">
+                    <h2>
+                        {{ chapter_data.comic.comic_name }} Does Not Seem To Have That Chapter Yet!
+                    </h2>
+                    <br>
+                    (Check the <a href="/comics/{{ chapter_data.comic.id }}"> Chapter List here</a>)
+                    <br>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" align="center" style="border: dotted">
+                    <div class="col-md-12">
+                        <h1>
+                            <strong>
+                                <mark>
+                                    SEEMS LIKE THERE IS NO SUCH CHAPTER!
+                                </mark>
+                            </strong>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}

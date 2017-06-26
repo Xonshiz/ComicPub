@@ -1,0 +1,45 @@
+{% extends "header.html" %}
+{% load staticfiles %}
+{% block extraImports %}
+    @media (min-width: 1200px) {
+    .container{
+    width: 100%;
+    }
+    }
+{% endblock %}
+
+{#Gets the context value of WEBSITE_NAME and sets the header title!#}
+{% block myTitle %}
+    {{ WEBSITE_NAME }}
+{% endblock %}
+
+{# Sets the WEBSITE NAME/LOGO in the navbar #}
+{% block websiteLogo %}
+    {{ WEBSITE_NAME }}
+{% endblock %}
+
+{% block homeActive %}
+    class="active"
+ {% endblock %}
+
+
+{# Main content of the page! #}
+{% block body %}
+    <div class="container-fluid">
+        <h1 align="center">
+            Latest Chapters
+        </h1>
+        <div class="container" style="border: groove;padding-top: 1%">
+            <div class="row">
+                <div class="col-sm-4 col-lg-2 col-md-4">
+                    <h1>
+                        <strong>
+                            SEEMS LIKE THAT PAGE DOESN'T EXIST
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
