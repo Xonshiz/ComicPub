@@ -1,6 +1,6 @@
 # ComicPub
 
-ComicPub, a.k.a Comic Publish is a Django based comic hosting web app. It is unique because you do not need to host the comic's chapter's images on your own web server. You can utilize Imgur's album embeds. This is completely deployable after making little changes.
+ComicPub, a.k.a Comic Publish is a Django based comic hosting web app. It is unique because you do not need to host the comic's chapters images on your own web server. You can utilize Imgur's album embeds. This is completely deployable after making little changes.
 
 ## Table of Content
 
