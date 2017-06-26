@@ -127,11 +127,11 @@ You can take a look at [Mockups] and see where we wanted to head. Help us fix th
 ### Contributors
 
 Thank you everyone who helped and made this repo amazing!
-Check out the list of contributors [Here](https://github.com/Xonshiz/ComicPub).
+Check out the list of contributors [Here](https://github.com/Xonshiz/ComicPub/blob/master/Contributors.md).
 
 ### Change Log
 
-You can find it here [Here](https://github.com/Xonshiz/ComicPub).
+You can find it here [Here](https://github.com/Xonshiz/ComicPub/blob/master/Changelog.md).
 
 ### Donations
 You can always send some money over from this :
