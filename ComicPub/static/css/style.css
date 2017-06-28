@@ -1,0 +1,26 @@
+body {
+    background-color: #b3b5b4;
+}
+
+.darken {
+    position: relative;
+}
+
+span.text-content {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  /*cursor: pointer;*/
+  /*display: table;*/
+  height: 500px;
+  max-height: 500px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: auto !important;
+}
