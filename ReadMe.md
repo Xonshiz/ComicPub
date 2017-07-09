@@ -31,7 +31,7 @@ ComicPub, a.k.a Comic Publish is a Django based comic hosting web app. It is uni
 
 ### Screenshots
 
-Coming Soon...
+Check the Screenshots folder...
 
 ### Dependencies
 
